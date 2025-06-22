@@ -42,7 +42,7 @@
         <span class="eye-icon" (click)="toggleLoginPasswordVisibility()">
           <mat-icon>{{ hideLoginPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
         </span>
-        <span class="forgot-password">Forgot password?</span>
+        <span class="forgot-password" (click)="goToForgetPassword()">Forgot password?</span>
         </div>
         <button class="login" (click)="onLogin()">Login</button>
         <div class="or-divider">

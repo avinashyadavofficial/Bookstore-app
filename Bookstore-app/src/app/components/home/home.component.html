@@ -1,0 +1,23 @@
+<app-topbar></app-topbar>
+
+<div class="books-header-container">
+  <div class="books-title">
+    <h3>Books</h3>
+    <span class="total-items">({{ books.length }} items)</span>
+  </div>
+
+  <div class="sort-dropdown">
+    <button>Sort by Relevance</button>
+  </div>
+</div>
+
+
+<div class="book-container">
+  <app-display-book-card 
+    *ngFor="let book of books" 
+    [book]="book">
+  </app-display-book-card>
+</div>
+
+
+<app-footer></app-footer>

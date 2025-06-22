@@ -16,4 +16,7 @@ export class UserService {
   register(payload: any):Observable<any>{
     return this.http.postApi('registration', payload);
   }
+  editUserDetails(payload:any):Observable<any>{
+    return this.http.putApi('edit_user',payload);
+  }
 }

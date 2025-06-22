@@ -1,0 +1,60 @@
+<app-topbar></app-topbar>
+<div class="navbar">
+    <p>Home / </p>
+    <span>Profile</span>
+</div>
+<div class="profile-container">
+  <h2>Personal Details <span class="edit-btn">Edit</span></h2>
+
+  <div class="form-section">
+    <label>Full Name</label>
+    <input type="text" value="Avinash Yadav" disabled />
+
+    <label>Email Id</label>
+    <input type="email" value="avinash@ge.co" disabled />
+
+    <label>Password</label>
+    <input type="password" value="********" disabled />
+
+    <label>Mobile Number</label>
+    <input type="text" value="9889988999" disabled />
+  </div>
+
+  <h2>Address Details</h2>
+  <div class="address-section">
+    <div class="address-header">
+      <p>1. WORK <span class="edit-btn">Edit</span></p>
+      <button class="add-btn">Add New Address</button>
+    </div>
+
+    <label>Address</label>
+    <textarea rows="2" disabled>
+Rampur,GauriBazar,Deoria,UP,India
+    </textarea>
+
+    <div class="city-state">
+      <div>
+        <label>City/Town</label>
+        <input type="text" value="Deoria" disabled />
+      </div>
+      <div>
+        <label>State</label>
+        <input type="text" value="Uttar Pradesh" disabled />
+      </div>
+    </div>
+
+    
+  </div>
+   <div class="address-type">
+  <p>Type</p>
+  <label><input type="radio" name="addressType" disabled value="Home" /> Home</label>
+  <label><input type="radio" name="addressType" checked disabled value="Work" /> Work</label>
+  <label><input type="radio" name="addressType" disabled value="Other" /> Other</label>
+</div>
+ 
+
+</div>
+
+
+
+<app-footer></app-footer>
