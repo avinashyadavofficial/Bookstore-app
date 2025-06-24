@@ -8,11 +8,13 @@ import { WishlistService } from '../../services/wishlist/wishlist.service';
 import { HttpService } from '../../services/http_service/http-service.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss'],
-  imports: [TopbarComponent, CommonModule,FormsModule]
+  imports: [TopbarComponent, CommonModule,FormsModule,MatIconModule]
 })
 export class BookDetailsComponent implements OnInit {
   book: any;
@@ -23,7 +25,7 @@ export class BookDetailsComponent implements OnInit {
   feedbacks: any[] = [];
   newComment: string = '';
   newRating: number = 0;
-
+  isActive=false;
   constructor(
     private route: ActivatedRoute,
     private bookService: BookService,
@@ -111,5 +113,8 @@ export class BookDetailsComponent implements OnInit {
   }
   navigateToHome(){
       this.router.navigate(['/home']);
+  }
+  toggleWishlist() {
+    this.isActive = !this.isActive;
   }
 }

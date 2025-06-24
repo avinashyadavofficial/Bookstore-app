@@ -72,15 +72,31 @@ cursor: pointer;
         }
       }
 
-      .wishlist-button {
-        background-color: transparent;
-        border: 1px solid #a03037;
-        color: #a03037;
+      .wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #333; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-height: 35px;
 
-        &:hover {
-          background-color: #fbeaec;
-        }
-      }
+  mat-icon {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &.active {
+    background-color: #d32f2f;
+  }
+}
+
     }
   }
 

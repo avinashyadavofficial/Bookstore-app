@@ -6,7 +6,15 @@
 
   <div class="search-section" *ngIf="showSearch">
     <mat-icon class="search-icon">search</mat-icon>
-    <input type="text" placeholder="Search..." />
+    <input
+  type="text"
+  placeholder="Search..."
+  [(ngModel)]="searchText"
+  (ngModelChange)="onSearchChange()"
+  class="search-input"
+/>
+
+
   </div>
 
   <div class="icon-section">

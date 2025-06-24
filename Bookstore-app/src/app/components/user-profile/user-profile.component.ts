@@ -1,65 +1,87 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FooterComponent } from "../footer/footer.component";
-import { TopbarComponent } from "../topbar/topbar.component";
-import { FormsModule } from '@angular/forms';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
+import { FooterComponent } from '../footer/footer.component';
+import { TopbarComponent } from '../topbar/topbar.component';
+
 @Component({
   selector: 'app-user-profile',
+  standalone: true,
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss'],
-  standalone: true,
-  imports: [FooterComponent, TopbarComponent, FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    FooterComponent,
+    TopbarComponent
+  ]
 })
 export class UserProfileComponent implements OnInit {
-  personal = {
+  user = {
     fullName: '',
     email: '',
     password: '********',
-    mobileNumber: '',
+    mobile: ''
   };
 
-  address = {
-    fullAddress: '',
-    city: '',
-    state: '',
-    addressType: 'Home'
-  };
+  addresses: any[] = [];
+  isEditingPersonal = false;
 
-  isEditingPersonal: boolean = false;
-  isEditingAddress: boolean = false;
-
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,private router:Router) {}
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {}
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      const userString = localStorage.getItem('user');
-      if (userString) {
-        const user = JSON.parse(userString);
-        this.personal.fullName = user.fullName || '';
-        this.personal.email = user.email || '';
-        this.personal.mobileNumber = user.phone || '';
+      const storedUser = localStorage.getItem('userDetails');
+      const storedAddresses = localStorage.getItem('addresses');
 
-        if (user.address && user.address.length > 0) {
-          const addr = user.address[0];
-          this.address.fullAddress = addr.fullAddress || '';
-          this.address.city = addr.city || '';
-          this.address.state = addr.state || '';
-          this.address.addressType = addr.addressType || 'Home';
-        }
+      if (storedUser) {
+        this.user = JSON.parse(storedUser);
+      }
+
+      if (storedAddresses) {
+        this.addresses = JSON.parse(storedAddresses);
+      } else {
+        this.addresses = [this.getEmptyAddress()];
       }
     }
   }
 
   togglePersonalEdit(): void {
+    if (this.isEditingPersonal) {
+      localStorage.setItem('userDetails', JSON.stringify(this.user));
+    }
     this.isEditingPersonal = !this.isEditingPersonal;
   }
 
-  toggleAddressEdit(): void {
-    this.isEditingAddress = !this.isEditingAddress;
+  toggleAddressEdit(index: number): void {
+    if (this.addresses[index].isEditing) {
+      localStorage.setItem('addresses', JSON.stringify(this.addresses));
+    }
+    this.addresses[index].isEditing = !this.addresses[index].isEditing;
   }
-  navigateToHome(){
+
+  addNewAddress(): void {
+    this.addresses.push(this.getEmptyAddress());
+    localStorage.setItem('addresses', JSON.stringify(this.addresses));
+  }
+
+  getEmptyAddress() {
+    return {
+      fullAddress: '',
+      city: '',
+      state: '',
+      addressType: 'Home',
+      isEditing: true
+    };
+  }
+
+  navigateToHome(): void {
     this.router.navigate(['/home']);
   }
 }

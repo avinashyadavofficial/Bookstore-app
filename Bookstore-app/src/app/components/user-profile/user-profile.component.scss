@@ -1,13 +1,14 @@
-.navbar{
-   padding-left: 162px;
-   display: flex;
-   flex-direction: row;
-   padding-top: 20px;
+.navbar {
+  padding-left: 162px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
 }
+
 .profile-container {
   max-width: 800px;
-  margin-top: 15px ;
-  margin-left:250px;
+  margin-top: 15px;
+  margin-left: 250px;
   margin-right: 550px;
   padding: 20px;
   font-family: 'Roboto', sans-serif;
@@ -16,13 +17,13 @@
     font-size: 18px;
     margin-bottom: 12px;
     color: #333;
+  }
 
-    .edit-btn {
-      color: #a03037;
-      font-size: 13px;
-      margin-left: 10px;
-      cursor: pointer;
-    }
+  .edit-btn {
+    color: #a03037;
+    font-size: 13px;
+    margin-left: 10px;
+    cursor: pointer;
   }
 
   label {
@@ -52,19 +53,12 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-      
-    p {
-    font-size: 18px;
-    margin-bottom: 12px;
-    color: #333;
 
-    .edit-btn {
-      color: #a03037;
-      font-size: 13px;
-      margin-left: 10px;
-      cursor: pointer;
+    p {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #333;
     }
-  }
 
     .add-btn {
       background-color: white;
@@ -86,8 +80,8 @@
       flex: 1;
     }
   }
-
 }
+
 .type-row {
   margin-bottom: 30px;
 
@@ -108,15 +102,9 @@
       font-size: 14px;
       color: #333;
 
-      input[type="radio"] {
-        accent-color: #a03037; // To match the red checked color
+      input[type='radio'] {
+        accent-color: #a03037; 
       }
     }
   }
 }
-
-
-
-
-
-

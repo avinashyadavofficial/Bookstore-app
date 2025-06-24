@@ -7,11 +7,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart/cart.service';
 import { PLATFORM_ID } from '@angular/core';
-
+import { SearchService } from '../../services/search/search.service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-topbar',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatMenuModule, MatButtonModule, MatDividerModule],
+  imports: [CommonModule, MatIconModule, MatMenuModule, MatButtonModule, MatDividerModule,FormsModule],
   templateUrl: './topbar.component.html',
   styleUrls: ['./topbar.component.scss']
 })
@@ -19,7 +20,7 @@ export class TopbarComponent implements OnInit {
   @Input() showSearch: boolean = true;
   @Input() showProfile: boolean = true;
   @Input() showCart: boolean = true;
-
+  searchText: string = '';
   isLoggedIn: boolean = false;
   userName: string = '';
   cartCount = 0;
@@ -27,7 +28,8 @@ export class TopbarComponent implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
@@ -82,4 +84,9 @@ export class TopbarComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/home']);
   }
+  
+
+onSearchChange(): void {
+  this.searchService.setSearchQuery(this.searchText);
+}
 }

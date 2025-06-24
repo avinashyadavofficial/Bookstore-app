@@ -16,7 +16,13 @@
         <button (click)="increment()">+</button>    
       </div>
 
-      <button class="wishlist-button" (click)="addToWishlist()">♡ WISHLIST</button>
+      <button 
+  class="wishlist-btn" 
+  [class.active]="isActive" 
+  (click)="toggleWishlist()">
+  <mat-icon>favorite</mat-icon>
+  WISHLIST
+</button>
     </div>
   </div>
 

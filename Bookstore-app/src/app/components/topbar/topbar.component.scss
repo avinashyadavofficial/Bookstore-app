@@ -122,7 +122,9 @@ opacity: 1;
   align-self: flex-start;
   margin-top: 8px;
   color:#A03037;
-  border: solid 1px red;
+  border: 1px solid #A03037;  
+  border-radius: 2px;
+  opacity: 1;
 }
 .icon-wrapper {
   position: relative;
