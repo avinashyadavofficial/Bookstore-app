@@ -1,54 +1,65 @@
 <app-topbar></app-topbar>
+<div class="navbar">
+    <p (click)="navigateToHome()">Home / </p>
+    <span>Profile</span>
+</div>
+<div class="book-details-wrapper">
+  <div class="left-side">
+    <img [src]="book?.bookImage || '/book.png'" alt="Book Cover" class="book-image" />
 
-<div class="book-details">
-  <div class="left">
-    <img [src]="book.image" alt="Book Image" />
-    <div class="btn-row">
-      <button class="add-btn">ADD TO BAG</button>
-      <button class="wishlist-btn">WISHLIST</button>
+    <div class="action-buttons">
+      <button *ngIf="!inCart" (click)="addToCart()">ADD TO BAG</button>
+
+      <div *ngIf="inCart" class="quantity-stepper">
+        <button (click)="decrement()">−</button>
+        <span>{{ quantity }}</span>
+        <button (click)="increment()">+</button>    
+      </div>
+
+      <button class="wishlist-button" (click)="addToWishlist()">♡ WISHLIST</button>
     </div>
   </div>
 
-  <div class="right">
-    <h2>{{ book.title }}</h2>
-    <p class="author">by {{ book.author }}</p>
+  <div class="right-side">
+    <h2>{{ book?.bookName }}</h2>
+    <p class="author">by {{ book?.author }}</p>
 
-    <div class="rating">
-      <span class="rating-value">4.5 ★</span>
-      <span class="reviews">(20)</span>
+    <div class="rating-row">
+      <span class="rating-badge">4.5 ★</span>
+      <span class="rating-count">(20)</span>
     </div>
 
-    <div class="price">
-      <span class="actual">Rs.{{ book.price }}</span>
-      <span class="original">Rs.2000</span>
+    <div class="price-row">
+      <span class="discount-price">Rs. {{ book?.discountPrice }}</span>
+      <span class="original-price">Rs. {{ book?.price }}</span>
     </div>
 
-    <div class="description">
-      <h3>* Book Detail</h3>
-      <p>Lorem ipsum dolor sit amet...</p>
+    <div class="description-section">
+      <h4>Book Detail</h4>
+      <p>{{ book?.description }}</p>
     </div>
 
-    <div class="feedback">
-      <h3>Customer Feedback</h3>
+    <div class="feedback-section">
+      <h4>Customer Feedback</h4>
 
-      <div class="rating-stars">Overall rating: ★★★★★</div>
-      <textarea placeholder="Write your review"></textarea>
-      <button class="submit-btn">Submit</button>
-
-      <div class="reviews-list">
-        <div class="review">
-          <strong>Aniket Chile</strong>
-          <div>⭐⭐⭐</div>
-          <p>Good product. Even though...</p>
+      <div class="write-review">
+        <label>Overall rating</label>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="newRating = star" [class.filled]="star <= newRating">★</span>
         </div>
-        <div class="review">
-          <strong>Shweta Bodkar</strong>
-          <div>⭐⭐⭐</div>
-          <p>Good product. Even though...</p>
+        <textarea [(ngModel)]="newComment" placeholder="Write your review"></textarea>
+        <button (click)="submitFeedback()">Submit</button>
+      </div>
+
+      <div *ngFor="let fb of feedbacks" class="review-block">
+        <strong>{{ fb.user?.fullName || 'Anonymous' }}</strong>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]">
+            {{ star <= fb.rating ? '★' : '☆' }}
+          </span>
         </div>
+        <p>{{ fb.comment }}</p>
       </div>
     </div>
   </div>
 </div>
-
-<app-footer></app-footer>

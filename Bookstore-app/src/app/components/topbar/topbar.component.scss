@@ -12,11 +12,12 @@
   padding-right: 164px;
 }
 
+
 .logo-section {
   display: flex;
   align-items: center;
   gap: 8px;
-
+  cursor: pointer;
   .app-name {
 
 text-align: left;
@@ -123,5 +124,29 @@ opacity: 1;
   color:#A03037;
   border: solid 1px red;
 }
+.icon-wrapper {
+  position: relative;
+
+  .cart-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: white;
+    color: #a03037;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+    border: 2px solid #a03037;
+    min-width: 18px;
+    text-align: center;
+  }
+}
+
 
 

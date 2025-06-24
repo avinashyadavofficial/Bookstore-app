@@ -17,12 +17,16 @@ export class HttpService {
   }
 
   getHeader(): HttpHeaders {
-    let token = '';
-    if (this.isBrowser) {
-      token = localStorage.getItem('authToken') || '';
-    }
-    return new HttpHeaders({ Authorization: token });
+  let token = '';
+  if (this.isBrowser) {
+    token = localStorage.getItem('authToken') || '';
   }
+  return new HttpHeaders({
+    'Content-Type': 'application/json',
+    'x-access-token': token
+  });
+}
+
 
   getApi(endpoint: string, headers: HttpHeaders = this.getHeader()) {
     return this.http.get(this.baseUrl + endpoint, { headers });
@@ -32,6 +36,9 @@ export class HttpService {
     return this.http.post(this.baseUrl + endpoint, payload, { headers });
   }
   putApi(endpoint: string, payload: any, headers: HttpHeaders = this.getHeader()) {
-    return this.http.post(this.baseUrl + endpoint, payload, { headers });
+    return this.http.put(this.baseUrl + endpoint, payload, { headers });
   }
+  deleteApi(endpoint: string, headers: HttpHeaders = this.getHeader()) {
+  return this.http.delete(this.baseUrl + endpoint, { headers });
+}
 }

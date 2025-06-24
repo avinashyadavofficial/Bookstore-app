@@ -1,6 +1,6 @@
 <app-topbar></app-topbar>
 <div class="navbar">
-    <p>Home / </p>
+    <p (click)="navigateToHome()">Home / </p>
     <span>Profile</span>
 </div>
 <div class="profile-container">
@@ -45,12 +45,16 @@ Rampur,GauriBazar,Deoria,UP,India
 
     
   </div>
-   <div class="address-type">
+  <div class="type-row">
   <p>Type</p>
-  <label><input type="radio" name="addressType" disabled value="Home" /> Home</label>
-  <label><input type="radio" name="addressType" checked disabled value="Work" /> Work</label>
-  <label><input type="radio" name="addressType" disabled value="Other" /> Other</label>
+  <div class="type-options">
+    <label><input type="radio" name="addressType" value="Home" disabled /> Home</label>
+    <label><input type="radio" name="addressType" value="Work" checked disabled /> Work</label>
+    <label><input type="radio" name="addressType" value="Other" disabled /> Other</label>
+  </div>
 </div>
+
+
  
 
 </div>
