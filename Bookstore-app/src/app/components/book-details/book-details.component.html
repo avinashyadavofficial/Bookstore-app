@@ -1,0 +1,71 @@
+<app-topbar></app-topbar>
+<div class="navbar">
+    <p (click)="navigateToHome()">Home / </p>
+    <span>Profile</span>
+</div>
+<div class="book-details-wrapper">
+  <div class="left-side">
+    <img [src]="book?.bookImage || '/book.png'" alt="Book Cover" class="book-image" />
+
+    <div class="action-buttons">
+      <button *ngIf="!inCart" (click)="addToCart()">ADD TO BAG</button>
+
+      <div *ngIf="inCart" class="quantity-stepper">
+        <button (click)="decrement()">−</button>
+        <span>{{ quantity }}</span>
+        <button (click)="increment()">+</button>    
+      </div>
+
+      <button 
+  class="wishlist-btn" 
+  [class.active]="isActive" 
+  (click)="toggleWishlist()">
+  <mat-icon>favorite</mat-icon>
+  WISHLIST
+</button>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <h2>{{ book?.bookName }}</h2>
+    <p class="author">by {{ book?.author }}</p>
+
+    <div class="rating-row">
+      <span class="rating-badge">4.5 ★</span>
+      <span class="rating-count">(20)</span>
+    </div>
+
+    <div class="price-row">
+      <span class="discount-price">Rs. {{ book?.discountPrice }}</span>
+      <span class="original-price">Rs. {{ book?.price }}</span>
+    </div>
+
+    <div class="description-section">
+      <h4>Book Detail</h4>
+      <p>{{ book?.description }}</p>
+    </div>
+
+    <div class="feedback-section">
+      <h4>Customer Feedback</h4>
+
+      <div class="write-review">
+        <label>Overall rating</label>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]" (click)="newRating = star" [class.filled]="star <= newRating">★</span>
+        </div>
+        <textarea [(ngModel)]="newComment" placeholder="Write your review"></textarea>
+        <button (click)="submitFeedback()">Submit</button>
+      </div>
+
+      <div *ngFor="let fb of feedbacks" class="review-block">
+        <strong>{{ fb.user?.fullName || 'Anonymous' }}</strong>
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]">
+            {{ star <= fb.rating ? '★' : '☆' }}
+          </span>
+        </div>
+        <p>{{ fb.comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

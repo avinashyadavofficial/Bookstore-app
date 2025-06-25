@@ -1,0 +1,66 @@
+<app-topbar></app-topbar>
+
+<div class="navbar">
+  <p (click)="navigateToHome()">Home / </p>
+  <span>Profile</span>
+</div>
+
+<div class="profile-container">
+  <h2>
+    Personal Details
+    <span class="edit-btn" (click)="togglePersonalEdit()">
+      {{ isEditingPersonal ? 'Save' : 'Edit' }}
+    </span>
+  </h2>
+
+  <div class="form-section">
+    <label>Full Name</label>
+    <input type="text" [(ngModel)]="user.fullName" [disabled]="!isEditingPersonal" />
+
+    <label>Email Id</label>
+    <input type="email" [(ngModel)]="user.email" [disabled]="!isEditingPersonal" />
+
+    <label>Password</label>
+    <input type="password" [(ngModel)]="user.password" [disabled]="!isEditingPersonal" />
+
+    <label>Mobile Number</label>
+    <input type="text" [(ngModel)]="user.mobile" [disabled]="!isEditingPersonal" />
+  </div>
+
+  <h2>Address Details</h2>
+  <div class="address-section" *ngFor="let address of addresses; let i = index">
+    <div class="address-header">
+      <p>{{ i + 1 }}. {{ address.addressType.toUpperCase() }}
+        <span class="edit-btn" (click)="toggleAddressEdit(i)">
+          {{ address.isEditing ? 'Save' : 'Edit' }}
+        </span>
+      </p>
+      <button class="add-btn" (click)="addNewAddress()">Add New Address</button>
+    </div>
+
+    <label>Address</label>
+    <textarea [(ngModel)]="address.fullAddress" rows="2" [disabled]="!address.isEditing"></textarea>
+
+    <div class="city-state">
+      <div>
+        <label>City/Town</label>
+        <input type="text" [(ngModel)]="address.city" [disabled]="!address.isEditing" />
+      </div>
+      <div>
+        <label>State</label>
+        <input type="text" [(ngModel)]="address.state" [disabled]="!address.isEditing" />
+      </div>
+    </div>
+
+    <div class="type-row">
+      <p>Type</p>
+      <div class="type-options">
+        <label><input type="radio" [(ngModel)]="address.addressType" value="Home" [disabled]="!address.isEditing" /> Home</label>
+        <label><input type="radio" [(ngModel)]="address.addressType" value="Work" [disabled]="!address.isEditing" /> Work</label>
+        <label><input type="radio" [(ngModel)]="address.addressType" value="Other" [disabled]="!address.isEditing" /> Other</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

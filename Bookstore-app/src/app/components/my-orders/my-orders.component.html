@@ -1,0 +1,34 @@
+<app-topbar></app-topbar>
+
+<div class="page-wrapper"> <!-- NEW WRAPPER for flex push -->
+
+  <div class="main-container">
+    <div class="navbar">
+      <p (click)="navigateToHome()">Home / </p>
+      <span>Profile</span>
+    </div>
+
+    <div class="orders-wrapper">
+      <div *ngFor="let item of orders" class="order-card">
+        <img [src]="item.product_id.bookImage || '/book.png'" alt="Book" class="order-img" />
+
+        <div class="order-details">
+          <h4>{{ item.product_id.bookName }}</h4>
+          <p>by {{ item.product_id.author }}</p>
+          <div class="price">
+            Rs. {{ item.product_id.discountPrice }}
+            <span class="strike">Rs. {{ item.product_id.price }}</span>
+          </div>
+        </div>
+
+        <div class="order-status">
+          <span class="green-dot"></span>
+          <span class="status-text">Order Placed on {{ orderPlacedDate }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

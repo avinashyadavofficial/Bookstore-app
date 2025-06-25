@@ -1,0 +1,234 @@
+.main-container{
+top: 0px;
+left: 0px;
+background: #424242;
+height: 100vh;
+}
+.left-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 120px;
+    left: 320px; 
+    width: 624px;
+    height: 340px; 
+    border-radius: 21px;
+}
+.right-card{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 95px;
+    left: 635px;
+    width: 389px;
+    height: 390px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 5px 15px #00000029;
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+    opacity: 1;
+}
+.left-card img{
+    position: absolute;
+    border-radius: 50%;
+    top:35px;
+    left: 50px;
+    width: 210px;
+    height: 210px;
+}
+.left-card p{
+    position: absolute;
+    top: 270px;
+    left: 70px;
+    width: 209px;
+    height: 24px;
+    text-align: left;
+    font: normal normal medium 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.tab-switch{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    margin-top: 28px;
+}
+
+.button-tab{
+    width: 22px;
+    height: 5px;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    opacity: 1;
+    border: none;
+}
+.loginSignup-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+.tab-button{
+    border: none;
+    font-weight: medium;
+    font-size: 25px;
+    line-height: 33px;
+    letter-spacing: 0px;
+    color: #878787;
+    text-transform: uppercase;
+    opacity: 1;
+    background: none;
+    cursor: pointer;
+}
+.loginSignup-tab button.selected {
+  color: #0A0102; 
+}
+form{
+    display:flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-right: auto;
+    margin-top: 9px;
+    width: 100%;
+}
+.right-card-wrapper {
+    height: 100%;
+}
+
+.email-card{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-left: 1px;
+    font-size: 12px;
+    line-height: 13px;
+    font-weight: normal;
+    font-family: Roboto;
+    letter-spacing: 0px;
+    color: #0A0102;
+    text-transform: capitalize;
+    opacity: 1;
+}
+input{
+   width: 70%;
+   height: 35px;
+   font-size: 15px;
+}
+.password-card{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+}
+.login{
+    margin-top: 12px;
+    height: 35px;
+    width: 71%;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    border: none;
+    color:white;
+}
+.signup{
+    margin-top: 12px;
+    height: 35px;
+    width: 71%;
+    background: #A03037 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+    border: none;
+    color:white;
+}
+.eye-icon{
+    padding-top: 10px;
+    align-self: center;
+    position: absolute;
+    right: 70px;
+    cursor: pointer;
+    color: #9D9D9D;
+    opacity: 1;
+}
+.forgot-password{
+    padding-right: 29%;
+    text-align: right;
+    font: normal normal normal 11px/13px Roboto;
+    letter-spacing: 0px;
+    color: #9D9D9D;
+    opacity: 1;
+    cursor: pointer;
+}
+.or-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin: 20px 0 10px 0;
+}
+
+.or-divider .line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0.6;
+}
+
+.or-divider .text {
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  gap: 10px;
+}
+
+.facebook-button {
+  flex: 1;
+  background-color: #3b5998;
+  color: white;
+  border: none;
+  height: 35px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.google-button {
+  flex: 1;
+  background-color: #f5f5f5;
+  color: black;
+  border: none;
+  height: 35px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+.name-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -2px;
+}
+.emaile-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+}
+.mobile-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+
+
+

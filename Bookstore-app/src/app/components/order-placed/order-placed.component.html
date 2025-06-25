@@ -1,0 +1,31 @@
+<app-topbar></app-topbar>
+
+<div class="success-wrapper">
+  <img src="/order.png" alt="Success" class="success-img" />
+  <p class="msg">
+    hurray!!! your order is confirmed<br />
+    the order id is <strong>#{{ orderId }}</strong> save the order id for<br />
+    further communication..
+  </p>
+
+  <table class="info-table">
+    <thead>
+      <tr>
+        <th>Email us</th>
+        <th>Contact us</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>admin&#64;bookstore.com</td>
+        <td>+91 9889988999</td>
+        <td>abc, xyz , MNO, India,</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="goToHome()">CONTINUE SHOPPING</button>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,84 @@
+<div class="topbar-container">
+  <div class="logo-section" (click)="navigateToHome()">
+    <img src="/education.svg" alt="bookstore logo" />
+    <span class="app-name">Bookstore</span>
+  </div>
+
+  <div class="search-section" *ngIf="showSearch">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input
+  type="text"
+  placeholder="Search..."
+  [(ngModel)]="searchText"
+  (ngModelChange)="onSearchChange()"
+  class="search-input"
+/>
+
+
+  </div>
+
+  <div class="icon-section">
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" class="profile-btn" *ngIf="showProfile">
+      <div class="icon-with-label">
+        <mat-icon>account_circle</mat-icon>
+        <span class="label">{{ isLoggedIn ? userName : 'Profile' }}</span>
+      </div>
+    </button>
+
+   <button mat-icon-button class="cart-btn" *ngIf="showCart" (click)="goToCart()">
+  <div class="icon-with-label">
+    <div class="icon-wrapper">
+      <img src="/supermarket.svg" alt="cart" class="cart-icon" />
+      <span *ngIf="cartCount > 0" class="cart-badge">{{ cartCount }}</span>
+    </div>
+    <span class="label">Cart</span>
+  </div>
+</button>
+
+  </div>
+</div>
+
+
+<div class="menu-container">
+  <mat-menu #profileMenu="matMenu" class="profile-menu">
+    <div class="menu-content">
+
+      <ng-container *ngIf="!isLoggedIn; else loggedInBlock">
+        <div class="welcome-text">
+          <p class="title">Welcome</p>
+          <p class="subtitle">To access account and manage orders</p>
+          <button mat-button class="login-btn" (click)="navigateToLogin()">LOGIN/SIGNUP</button>
+        </div>
+        <mat-divider></mat-divider>
+        <button mat-menu-item >
+  <mat-icon>inventory_2</mat-icon>
+  <span>My Orders</span>
+</button>
+        <button mat-menu-item (click)="navigateToWishlist()">
+          <mat-icon>favorite_border</mat-icon>
+          <span>Wishlist</span>
+        </button>
+      </ng-container>
+
+      <ng-template #loggedInBlock>
+        <div class="welcome-text">
+          <p class="title">Hello {{ userName }},</p>
+        </div>
+        <button mat-menu-item (click)="navigateToProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="navigateToOrders()">
+          <mat-icon>inventory_2</mat-icon>
+          <span>My Orders</span>
+        </button>
+        <button mat-menu-item (click)="navigateToWishlist()">
+          <mat-icon>favorite_border</mat-icon>
+          <span>My Wishlist</span>
+        </button>
+        <button mat-button class="logout-btn" (click)="logout()">Logout</button>
+      </ng-template>
+
+    </div>
+  </mat-menu>
+</div>

@@ -1,0 +1,33 @@
+<app-topbar></app-topbar>
+
+<div class="page-wrapper"> 
+
+  <div *ngIf="!isLoggedIn" class="main-container">
+    <h6>PLEASE LOGIN IN</h6>
+    <p>Login to view items in your wishlist</p>
+    <img src="/wishlist.png" alt="wishlist image" />
+    <button (click)="goToLogin()">LOGIN/SIGNUP</button>
+  </div>
+
+  <div *ngIf="isLoggedIn" class="wishlist-wrapper">
+    <p class="wishlist-header">My Wishlist ({{ wishlistItems.length < 10 ? '0' + wishlistItems.length : wishlistItems.length }})</p>
+
+    <div *ngFor="let item of wishlistItems" class="wishlist-card">
+      <img [src]="item.product_id.bookImage || '/book.png'" alt="Book" />
+
+      <div class="book-details">
+        <h4>{{ item.product_id.bookName }}</h4>
+        <p>by {{ item.product_id.author }}</p>
+        <div class="price">
+          Rs. {{ item.product_id.discountPrice }}
+          <span class="strike">Rs. {{ item.product_id.price }}</span>
+        </div>
+      </div>
+
+      <mat-icon class="remove-btn" (click)="removeFromWishlist(item.product_id._id)">delete</mat-icon>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

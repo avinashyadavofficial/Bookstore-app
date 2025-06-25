@@ -1,0 +1,88 @@
+<div class="main-container">
+  <mat-card class="left-card">
+    <img src="/login.png" alt="Shopping Cart" />
+    <p>ONLINE BOOK SHOPPING</p>
+  </mat-card>
+  
+  
+
+    <mat-card class="right-card">
+      <div class="right-card-wrapper">
+        <div class="tab-switch">
+          <div class="loginSignup-tab">
+            <button 
+            [class.active]="isLoginMode" 
+            (click)="toggleMode(true)" class="tab-button"
+            [ngClass]="{ 'selected': isLoginMode }"
+            >LOGIN
+            </button>
+        <button class="button-tab" *ngIf="isLoginMode" ></button>
+      </div>
+      <div class="loginSignup-tab">
+        <button 
+          [class.active]="!isLoginMode" 
+          (click)="toggleMode(false)" class="tab-button"
+          [ngClass]="{ 'selected': !isLoginMode }"
+          >SIGNUP
+        </button>
+        <button class="button-tab" *ngIf="!isLoginMode" ></button>
+      </div>
+      </div>
+      <form [formGroup]="loginForm"  *ngIf="isLoginMode" class="form">
+        <div class="email-card">
+        <label>Email Id</label>
+        <input type="email" formControlName="email">
+        </div>
+        <div class="password-card">
+        <label>Password</label>
+        <input 
+          [type]="hideLoginPassword ? 'password' : 'text'" 
+          formControlName="password" 
+        />
+        <span class="eye-icon" (click)="toggleLoginPasswordVisibility()">
+          <mat-icon>{{ hideLoginPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </span>
+        <span class="forgot-password" (click)="goToForgetPassword()">Forgot password?</span>
+        </div>
+        <button class="login" (click)="onLogin()">Login</button>
+        <div class="or-divider">
+          <div class="line"></div>
+          <span class="text">OR</span>
+          <div class="line"></div>
+        </div>
+
+        <div class="social-buttons">
+          <button class="facebook-button">Facebook</button>
+          <button class="google-button">Google</button>
+        </div>
+      </form>
+      <form [formGroup]="signupForm" *ngIf="!isLoginMode" class="form">
+        <div class="name-card">
+          <label>Full Name</label>
+          <input type="text" formControlName="fullName">
+        </div>
+        <div class="emaile-card">
+          <label>Email Id</label>
+          <input type="text" formControlName="email">
+        </div>
+        <div class="password-card">
+        <label>Password</label>
+        <input 
+          [type]="hideSignupPassword ? 'password' : 'text'" 
+          formControlName="password" 
+        />
+        <span class="eye-icon" (click)="toggleSignupPasswordVisibility()">
+          <mat-icon>{{ hideSignupPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </span>
+        </div>
+        <div class="mobile-card">
+          <label>Mobile Number</label>
+          <input type="text" formControlName="mobileNumber">
+        </div>
+        <button class="signup" (click)="onSignup()">Signup</button>
+      </form>
+      
+      </div>
+    </mat-card>
+
+</div>

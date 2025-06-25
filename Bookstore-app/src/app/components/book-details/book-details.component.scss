@@ -1,0 +1,239 @@
+.navbar{
+   padding-left: 162px;
+   display: flex;
+   flex-direction: row;
+   padding-top: 20px;
+
+  p{
+    text-align: left;
+    color: #9D9D9D;
+opacity: 1;
+cursor: pointer;
+  }
+}
+.book-details-wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 40px 60px;
+  flex-wrap: wrap;
+  margin-left: 217px;
+  margin-right: 181px;
+
+  .left-side {
+    flex: 1;
+    min-width: 280px;
+
+    .book-image {
+      width: 100%;
+      max-width: 320px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .action-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      button {
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+        background-color: #a03037;
+        color: white;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #c7444b;
+        }
+      }
+
+      .quantity-stepper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+          background-color: #f1f1f1;
+          color: black;
+          font-size: 18px;
+          padding: 5px 15px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+        }
+
+        span {
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+
+      .wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #333; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  max-height: 35px;
+
+  mat-icon {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  &.active {
+    background-color: #d32f2f;
+  }
+}
+
+    }
+  }
+
+  .right-side {
+    flex: 2;
+    min-width: 300px;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .author {
+      font-size: 18px;
+      color: #777;
+    }
+
+    .rating-row {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .rating-badge {
+        background-color: #388e3c;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .rating-count {
+        color: #555;
+        font-size: 14px;
+      }
+    }
+
+    .price-row {
+      margin: 15px 0;
+      font-size: 20px;
+
+      .discount-price {
+        font-weight: bold;
+      }
+
+      .original-price {
+        margin-left: 10px;
+        text-decoration: line-through;
+        color: #999;
+      }
+    }
+
+    .description-section {
+      margin: 20px 0;
+
+      h4 {
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: #444;
+        line-height: 1.5;
+      }
+    }
+
+    .feedback-section {
+      margin-top: 30px;
+
+      .write-review {
+        margin-bottom: 20px;
+
+        label {
+          font-weight: 600;
+          margin-bottom: 6px;
+          display: block;
+        }
+
+        .stars {
+          font-size: 22px;
+          color: #ccc;
+          margin: 5px 0;
+          cursor: pointer;
+
+          span {
+            margin-right: 5px;
+            transition: color 0.2s;
+
+            &.filled {
+              color: #fbc02d;
+            }
+          }
+        }
+
+        textarea {
+          width: 100%;
+          padding: 10px;
+          margin: 10px 0;
+          border-radius: 6px;
+          border: 1px solid #ccc;
+          font-family: inherit;
+        }
+
+        button {
+          background-color: #1976d2;
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          font-weight: 500;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #115293;
+          }
+        }
+      }
+
+      .review-block {
+        border-top: 1px solid #ddd;
+        padding: 10px 0;
+
+        strong {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        .stars {
+          color: #fbc02d;
+          margin-bottom: 4px;
+        }
+
+        p {
+          margin-top: 5px;
+          font-size: 14px;
+          color: #444;
+        }
+      }
+    }
+  }
+}

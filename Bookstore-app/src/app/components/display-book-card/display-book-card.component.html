@@ -1,0 +1,27 @@
+<mat-card class="book-card" (click)="onCardClick()">
+  <div class="book-card-container">
+  <div class="book-image-container">
+  <img 
+    [src]="book.bookImage || '/book.png'" 
+    alt="Book Cover" 
+    class="book-image" 
+  />
+  </div>
+  <div class="book-details">
+    <h3 class="title">{{ book.bookName }}</h3>
+    <p class="author">by {{ book.author }}</p>
+
+    <div class="rating">
+      <span class="star">4.5 ★</span>
+      <span class="count">(20)</span>
+    </div>
+
+    <div class="price">
+      <span class="final">Rs. {{ book.discountPrice }}</span>
+      <span class="original">Rs. {{ book.price }}</span>
+    </div>
+
+    <div *ngIf="book.quantity === 0" class="out-of-stock">OUT OF STOCK</div>
+  </div>
+  </div>
+</mat-card>
