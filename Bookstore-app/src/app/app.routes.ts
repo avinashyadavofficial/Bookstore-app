@@ -16,7 +16,11 @@ export const routes: Routes = [
   {path:'forget-password',component:ForgotpasswordComponent},
   {path:'wishlist',component:WishlistComponent},
   {path: 'profile', component: UserProfileComponent },
-  {path: 'book-details/:bookId',component:BookDetailsComponent},
+  {
+  path: 'book-details/:bookId',
+  component: BookDetailsComponent,
+  data: { renderMode: 'disabled' }
+},
   {path:'cart',component:CartComponent},
   {path:'order-success',component:OrderPlacedComponent},
   {
