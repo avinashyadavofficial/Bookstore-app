@@ -133,4 +133,20 @@ export class BookDetailsComponent implements OnInit {
   navigateToHome() {
     this.router.navigate(['/home']);
   }
+  toggleWishlist() {
+  if (!this.isActive) {
+    this.addToWishlist();  // use your existing method
+  } else {
+    const productId = this.book._id;
+    this.wishlistService.removeWishlist(productId).subscribe({
+      next: () => {
+        console.log('Removed from wishlist');
+        this.isActive = false;
+      },
+      error: (err: any) => {
+        console.error('Error removing from wishlist', err);
+      }
+    });
+  }
+}
 }
